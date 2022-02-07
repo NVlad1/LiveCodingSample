@@ -47,7 +47,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateSelected(){
-        val number = DataKeeper.isChecked.fold(0){num, isCheck -> if (isCheck) num+1 else num}
+        var number = 0
+        for (entry in DataKeeper.isChecked) {
+            if (entry.value) number += 1
+        }
         Toast.makeText(this, "$number", Toast.LENGTH_SHORT).show()
     }
 }

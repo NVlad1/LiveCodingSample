@@ -7,7 +7,7 @@ import kotlinx.coroutines.launch
 
 object DataKeeper {
     val data = ArrayList<String>()
-    val isChecked = ArrayList<Boolean>()
+    val isChecked = HashMap<String, Boolean>()
 
     suspend fun fetchData(){
         data.clear()
@@ -19,7 +19,7 @@ object DataKeeper {
         delay(100L)
         for (i in 0 until 1000){
             data.add("data$i")
-            isChecked.add(false)
+            isChecked["data$i"] = false
         }
     }
 }
